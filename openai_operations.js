@@ -11,9 +11,13 @@ export class OpenAIOperations {
         this.history_length = history_length;
     }
 
-    check_history_length() {
+     check_history_length() {
         // Use template literals to concatenate strings
         console.log(`Conversations in History: ${((this.messages.length / 2) -1)}/${this.history_length}`);
+        if(this.messages.length > ((this.history_length * 2) + 1)) {
+            console.log('Message amount in history exceeded. Removing oldest user and agent messages.');
+            this.messages.splice(1,2);
+        }
     }
 
     async make_openai_call(text) {
