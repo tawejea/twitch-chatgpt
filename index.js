@@ -124,8 +124,8 @@ bot.onMessage(async (channel, user, message, self) => {
     if (self) return;
 
     if (ENABLE_CHANNEL_POINTS) {
-        console.log(`The message id is ${user["msg-id"]}`);
-        if (user["msg-id"] === "highlighted-message") {
+       
+        if (user["custom-reward-id"] === "cf266d3e-4c06-4b83-87e0-a191e47de6f4") {
             console.log(`The message is ${message}`);
             const response = await openai_ops.make_openai_call(message);
             bot.say(channel, response);
