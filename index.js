@@ -249,11 +249,6 @@ app.get('/gpt/:text', async (req, res) => {
     res.send(answer)
 })
 
-// make app always listening to twitch chat and get new messages starting with !gpt on port 3000
-const server = app.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
-
 const wss = expressWsInstance.getWss();
 // const wss = appWithWebSocket.ws
 
